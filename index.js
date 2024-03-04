@@ -68,6 +68,7 @@ app.all('/', (req, res) => {res.send({"message": "all method called"})})
 // })// parametre ekleemk istersek slahs dan sonra paramrtre adini burada veriyoruz. postmande istek godnerirken orn blog id olarak / tan sonra :10001 yaziyoruz. her paramertre arasina slahs/ koyariz
 
 //app.get('/:userId', (req, res) => {
+/*
 app.get('/:userId[0-9]', (req, res) => { //koseli parantez acarak sinirlama getirebiliriz sadece rakam gonderebiliriz
     res.send({
         params: req.params,
@@ -84,8 +85,36 @@ app.get('/:userId[0-9]', (req, res) => { //koseli parantez acarak sinirlama geti
             header: req.headers
         }
     })
-
-
 })
+*/
+// app.get('/', (req, res) => {
+//     res.status(201).send({  //default 200
 
-app.listen(PORT, HOST, () => console.log(`server runned http://${HOST}: ${PORT}`)) //server olusturmak icin listen demek zorundayiz
+//         message: "tebrikler uye oldunuz"
+
+
+//     })
+
+
+// })
+
+// app.post('/', (req, res) => { res.status(201).send({ "message": "post method request" }) })
+// app.put('/', (req, res) => { res.status(202).send({ "message": "put method request" }) })
+// app.delete('/', (req, res) => { res.status(202).send({ "message": "delete method request" }) })
+
+//redirect sayfayi yonlendirme. sadece 300 lu kodlar
+
+app.get("/", (req, res) => {
+    res.redirect(301, "https://www.google.com")
+})
+// //show file content
+
+// app.get('/', (req, res) => {
+
+//     //res.status(201).send({ "message": "post method request" })
+
+//     res.redirect(301, 'https://www.google.com')
+// })
+
+
+app.listen(PORT, HOST, () => console.log(`Server Runned http://${HOST}:${PORT}`)) //server olusturmak icin listen demek zorundayiz
